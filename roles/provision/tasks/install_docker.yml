@@ -9,23 +9,11 @@
 
 - name: installing docker
   block:
-    - name: adding Docker GPG apt Key
-      apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
+    - name: getting install docker script
+      get_url:
+        url: https://get.docker.com
+        dest: /tmp/get-docker.sh
 
-    - name: adding Docker Repository
-      apt_repository:
-        repo: deb https://download.docker.com/linux/ubuntu focal stable
-        state: present
-
-    - name: updating apt and install docker-ce
-      apt:
-        name: docker-ce
-        state: latest
-        update_cache: true
-
-    - name: installing Docker Module for Python
-      pip:
-        name: docker
+    - name: installing docker
+      shell: /tmp/get-docker.sh > /var/log/get-docker.log
   when: not docker_installed | bool
