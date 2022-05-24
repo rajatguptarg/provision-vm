@@ -1,0 +1,11 @@
+# Install it via:
+# ansible-galaxy collection install -r dependencies/requirements.yml
+---
+collections:
+  - name: community.crypto
+  - name: amazon.aws
+  - name: google.cloud
+  - name: kubernetes.core
+  - name: community.mongodb
+  - name: community.kubernetes
+  - name: community.docker

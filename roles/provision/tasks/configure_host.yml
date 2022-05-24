@@ -2,3 +2,10 @@
 - name: configuring hostname
   hostname:
     name: '{{ hostname }}'
+
+- name: generating SSH key pair
+  become: no
+  openssh_keypair:
+    path: ~/.ssh/id_rsa
+    type: rsa
+    size: 2048

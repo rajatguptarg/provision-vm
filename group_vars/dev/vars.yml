@@ -21,6 +21,8 @@ linux_packages_to_install:
   - python3-setuptools
   - bpfcc-tools
   - git
+  - curl
+  - wget
   - 'linux-headers-{{ ansible_kernel }}'
 
 python_packages_to_install:
