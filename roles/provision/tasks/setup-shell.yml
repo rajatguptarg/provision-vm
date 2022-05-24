@@ -1,0 +1,27 @@
+---
+- name: creating working directory
+  file:
+    path: '{{ work_on_dir }}'
+    state: directory
+
+- name: creating virtualenv directory
+  file:
+    path: ~/.virtualenvs
+    state: directory
+
+- name: creating alias file
+  template:
+    src: alias.j2
+    dest: '{{ alias_path }}'
+
+- name: ensuring virtualenv is sourced
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    block: |
+      export WORKON_HOME=~/.virtualenvs
+      export PROJECT_HOME={{ work_on_dir }}
+      source /usr/local/bin/virtualenvwrapper.sh
+      source {{ alias_path }}
+    marker: '# {mark} ANSIBLE MANAGED BLOCK - virtualenv'
+    insertbefore: BOF
+    create: yes

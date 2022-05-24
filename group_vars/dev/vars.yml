@@ -24,8 +24,15 @@ linux_packages_to_install:
   - curl
   - wget
   - unzip
+  - universal-ctags
+  - cscope
   - 'linux-headers-{{ ansible_kernel }}'
 
 python_packages_to_install:
   - ansible
   - requests
+  - virtualenv
+  - virtualenvwrapper
+
+work_on_dir: ~/work
+alias_path: /usr/local/src/alias.sh
