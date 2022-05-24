@@ -23,5 +23,4 @@
       source /usr/local/bin/virtualenvwrapper.sh
       source {{ alias_path }}
     marker: '# {mark} ANSIBLE MANAGED BLOCK - virtualenv'
-    insertbefore: BOF
     create: yes

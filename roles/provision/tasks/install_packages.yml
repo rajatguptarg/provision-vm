@@ -5,10 +5,29 @@
     state: latest
     update_cache: true
 
-- name: installing packages
+- name: installing linux packages
   apt:
     name: '{{ item }}'
     state: present
     update_cache: yes
   with_items:
     - '{{ linux_packages_to_install }}'
+
+- name: downloading go lang binary
+  get_url:
+    url: '{{ go_url }}'
+    dest: /tmp/go.tar.gz
+
+- name: installing go lang binary
+  unarchive:
+    src: /tmp/go.tar.gz
+    dest: /usr/local
+    remote_src: yes
+
+- name: ensuring go is sourced
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    block: |
+      export PATH=$PATH:/usr/local/go/bin
+    marker: '# {mark} ANSIBLE MANAGED BLOCK - golang'
+    create: yes
