@@ -1,0 +1,6 @@
+---
+- hosts: dev_box:&dev
+  gather_facts: yes
+  become: yes
+  roles:
+    - provision

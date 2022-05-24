@@ -1,0 +1,31 @@
+---
+- name: populating service facts
+  service_facts:
+
+- name: getting docker service status
+  set_fact:
+    docker_installed: yes
+  when: "'docker' in services"
+
+- name: installing docker
+  block:
+    - name: adding Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: adding Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: updating apt and install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+    - name: installing Docker Module for Python
+      pip:
+        name: docker
+  when: not docker_installed | bool

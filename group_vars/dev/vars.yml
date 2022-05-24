@@ -1,0 +1,7 @@
+---
+ansible_python_interpreter: /usr/bin/python3
+env: dev
+src_location: MY_DESKTOP
+zone: dev
+
+docker_installed: no

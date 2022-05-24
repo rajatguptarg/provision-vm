@@ -1,0 +1,26 @@
+---
+- name: installing aptitude
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: true
+
+- name: installing packages
+  apt:
+    name: '{{ item }}'
+    state: present
+    update_cache: yes
+  with_items:
+    - net-tools
+    - sysstat
+    - silversearcher-ag
+    - tshark
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - python3-pip
+    - virtualenv
+    - python3-setuptools
+    - bpfcc-tools
+    - 'linux-headers-{{ ansible_kernel }}'

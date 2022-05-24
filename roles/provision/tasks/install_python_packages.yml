@@ -1,0 +1,7 @@
+---
+- name: installing python packages
+  pip:
+    name: '{{ item }}'
+  with_items:
+    - ansible
+    - requests
