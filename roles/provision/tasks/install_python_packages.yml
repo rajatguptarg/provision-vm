@@ -3,5 +3,4 @@
   pip:
     name: '{{ item }}'
   with_items:
-    - ansible
-    - requests
+    - '{{ python_packages_to_install }}'

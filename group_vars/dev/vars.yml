@@ -5,3 +5,23 @@ src_location: MY_DESKTOP
 zone: dev
 
 docker_installed: no
+hostname: linux
+
+linux_packages_to_install:
+  - net-tools
+  - sysstat
+  - silversearcher-ag
+  - tshark
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+  - python3-pip
+  - virtualenv
+  - python3-setuptools
+  - bpfcc-tools
+  - 'linux-headers-{{ ansible_kernel }}'
+
+python_packages_to_install:
+  - ansible
+  - requests
