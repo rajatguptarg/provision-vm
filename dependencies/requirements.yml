@@ -9,3 +9,4 @@ collections:
   - name: community.mongodb
   - name: community.kubernetes
   - name: community.docker
+  - name: ansible.utils

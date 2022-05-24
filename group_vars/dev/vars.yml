@@ -23,6 +23,7 @@ linux_packages_to_install:
   - git
   - curl
   - wget
+  - unzip
   - 'linux-headers-{{ ansible_kernel }}'
 
 python_packages_to_install:
