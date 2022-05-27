@@ -31,3 +31,11 @@
       export PATH=$PATH:/usr/local/go/bin
     marker: '# {mark} ANSIBLE MANAGED BLOCK - golang'
     create: yes
+
+- name: ensuring games is in the path
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    block: |
+      export PATH=$PATH:/usr/games
+    marker: '# {mark} ANSIBLE MANAGED BLOCK - games'
+    create: yes

@@ -9,6 +9,14 @@ hostname: linux
 
 linux_packages_to_install:
   - net-tools
+  - cmatrix
+  - xcowsay
+  - sl
+  - libaa-bin
+  - x11-apps
+  - aview
+  - lolcat
+  - sysvbanner
   - sysstat
   - silversearcher-ag
   - tshark
