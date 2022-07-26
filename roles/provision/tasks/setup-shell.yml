@@ -20,6 +20,8 @@
     block: |
       export WORKON_HOME=~/.virtualenvs
       export PROJECT_HOME={{ work_on_dir }}
+      export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+      export VIRTUALENV_PYTHON=/usr/bin/python3
       source /usr/local/bin/virtualenvwrapper.sh
       source {{ alias_path }}
     marker: '# {mark} ANSIBLE MANAGED BLOCK - virtualenv'

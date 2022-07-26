@@ -15,5 +15,5 @@
         dest: /tmp/get-docker.sh
 
     - name: installing docker
-      shell: /tmp/get-docker.sh > /var/log/get-docker.log
+      shell: /usr/bin/bash /tmp/get-docker.sh > /var/log/get-docker.log
   when: not docker_installed | bool
