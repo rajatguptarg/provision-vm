@@ -1,0 +1,36 @@
+---
+- name: create ssh ca directory
+  file:
+    path: /etc/ssh/ca
+    state: directory
+
+- name: copy ca public key to the remote host
+  copy:
+    src: "{{ ca_pub_key_src }}"
+    dest: "{{ ca_pub_key_dst }}"
+    owner: root
+    group: root
+
+- name: copy revoked keys to the remote host
+  copy:
+    src: "{{ revoked_keys_src }}"
+    dest: "{{ revoked_keys_dst }}"
+    owner: root
+    group: root
+
+- name: create ssh configurations for principal
+  template:
+    src: authorized_principals
+    dest: "{{ ssh_principal_path }}"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: create sshd configurations
+  template:
+    src: 95-cert-auth.conf
+    dest: "{{ sshd_config_path }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: "restart sshd"

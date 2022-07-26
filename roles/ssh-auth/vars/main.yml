@@ -1,0 +1,9 @@
+---
+ca_pub_key_src: ssh-ca.pub
+ca_pub_key_dst: /etc/ssh/ca/ssh-ca.pub
+
+ssh_principal_path: /etc/ssh/authorized_principals
+sshd_config_path: /etc/ssh/sshd_config.d/95-cert-auth.conf
+
+revoked_keys_src: revoked_keys
+revoked_keys_dst: /etc/ssh/ca/revoked-keys

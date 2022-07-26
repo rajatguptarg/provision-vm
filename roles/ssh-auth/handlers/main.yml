@@ -1,0 +1,6 @@
+---
+- name: ensure sshd is restarted
+  service:
+    name: ssh
+    state: restarted
+  listen: "restart sshd"
